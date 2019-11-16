@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nwsuaf.lims.dao.Poem2Mapper">
+  <resultMap id="BaseResultMap" type="cn.edu.nwsuaf.lims.model.Poem2">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="model_name" jdbcType="VARCHAR" property="modelName" />
+    <result column="poem_name" jdbcType="VARCHAR" property="poemName" />
+    <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="dynasty" jdbcType="VARCHAR" property="dynasty" />
+    <result column="link_to" jdbcType="VARCHAR" property="linkTo" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+</mapper>
