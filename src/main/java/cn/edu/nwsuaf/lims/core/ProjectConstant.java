@@ -14,4 +14,5 @@ public final class ProjectConstant {
 
     public static final String MAPPER_INTERFACE_REFERENCE = BASE_PACKAGE + ".core.Mapper";//Mapper插件基础接口的完全限定名
     public static final String PUB_KEY="abcd1234abcd1234";
+    public static final String SCRECT_KEY ="123456";
 }

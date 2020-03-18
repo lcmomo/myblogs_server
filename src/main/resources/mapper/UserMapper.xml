@@ -12,7 +12,7 @@
     <result column="role" jdbcType="VARCHAR" property="role" />
     <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
     <result column="avatar" jdbcType="VARCHAR" property="avatar" />
-    <result column="github_id" jdbcType="VARCHAR" property="githubId" />
+    <result column="github" jdbcType="VARCHAR" property="github" />
     <result column="password" jdbcType="VARCHAR" property="password" />
   </resultMap>
 </mapper>
