@@ -21,8 +21,8 @@ public class User {
 
     private String avatar;
 
-    @Column(name = "github_id")
-    private String githubId;
+    @Column(name = "github")
+    private String github;
 
     private String password;
 
@@ -127,15 +127,15 @@ public class User {
     /**
      * @return github_id
      */
-    public String getGithubId() {
-        return githubId;
+    public String getGithub() {
+        return github;
     }
 
     /**
-     * @param githubId
+     * @param github
      */
-    public void setGithubId(String githubId) {
-        this.githubId = githubId;
+    public void setGithubId(String github) {
+        this.github = github;
     }
 
     /**

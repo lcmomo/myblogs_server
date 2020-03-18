@@ -19,6 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
+import static cn.edu.nwsuaf.lims.core.ProjectConstant.SCRECT_KEY;
+
 
 /**
  * @author liliuchao
@@ -54,16 +56,18 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
                 // 获取 token 中的 user id
                 String userId;
                 try {
-                    userId = JWT.decode(token).getAudience().get(0);
-                } catch (JWTDecodeException j) {
+//                    userId = JWT.decode(token).getAudience().get(0);
+                    userId=JWT.decode(token).getClaim("userid").asString();
+                    System.out.println(userId);
+                } catch (Exception j) {
                     throw new RuntimeException("401");
                 }
-                User user = userService.findByUserId(userId);
-                if (user == null) {
-                    throw new RuntimeException("用户不存在，请重新登录");
-                }
+//                User user = userService.findByUserId(userId);
+//                if (user == null) {
+//                    throw new RuntimeException("用户不存在，请重新登录");
+//                }
                 // 验证 token
-                JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(user.getPassword())).build();
+                JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(SCRECT_KEY)).build();
                 try {
                     jwtVerifier.verify(token);
                 } catch (JWTVerificationException e) {

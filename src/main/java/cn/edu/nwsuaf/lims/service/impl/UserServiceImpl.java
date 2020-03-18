@@ -23,15 +23,14 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
 
     @Override
-    public User findByUserId(String userId) {
+    public User findByUserId(String uid) {
         Condition condition = new Condition(User.class);
         condition.createCriteria()
-                .andEqualTo("userid",userId);
+                .andEqualTo("userid",uid);
         List<User> usersn = findByCondition(condition);
         User user=null;
         if(usersn.size()>0){
-            user=new User();
-            return user;
+            return usersn.get(0);
         }
         else
 
@@ -75,10 +74,9 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
         condition.createCriteria()
                 .andEqualTo("username",username);
         List<User> usersn = findByCondition(condition);
-        User user=null;
+
         if(usersn.size()>0){
-            user=new User();
-            return user;
+           return usersn.get(0);
         }
         else
 

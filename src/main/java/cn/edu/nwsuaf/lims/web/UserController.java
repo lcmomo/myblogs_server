@@ -1,5 +1,6 @@
 package cn.edu.nwsuaf.lims.web;
 
+import cn.edu.nwsuaf.lims.annotation.UserLoginToken;
 import cn.edu.nwsuaf.lims.core.Result;
 import cn.edu.nwsuaf.lims.core.ResultGenerator;
 import cn.edu.nwsuaf.lims.model.User;
@@ -49,6 +50,7 @@ public class UserController {
         return ResultGenerator.genSuccessResult(user);
     }
 
+    @UserLoginToken
     @GetMapping("/list")
     public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
@@ -59,6 +61,7 @@ public class UserController {
 
 
     @PostMapping(value="login")
+    //@UserLoginToken
     public Result login(@RequestBody User use)
 
     {
@@ -77,8 +80,8 @@ public class UserController {
 
             TokenService tokenService=new TokenService();
             String token = tokenService.getToken(userForBean);
-            System.out.println("to");
-            System.out.println(token);
+//            System.out.println("to");
+//            System.out.println(token);
             jsonObject.put("token", token);
             jsonObject.put("user", userForBean);
 
