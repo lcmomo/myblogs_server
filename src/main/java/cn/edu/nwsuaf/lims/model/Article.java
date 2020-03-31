@@ -1,14 +1,18 @@
 package cn.edu.nwsuaf.lims.model;
 
+import lombok.Data;
+
 import java.util.Date;
 import javax.persistence.*;
 
+@Data
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(name = "article_id")
+    @Transient
     private String articleId;
 
     private String title;
@@ -20,6 +24,9 @@ public class Article {
     private Date updateTime;
 
     private String content;
+
+    @Column(name = "viewCount")
+    private Integer viewCount;
 
     /**
      * @return id
