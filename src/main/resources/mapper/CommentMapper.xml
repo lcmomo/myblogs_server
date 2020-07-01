@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.nwsuaf.lims.dao.CommentMapper">
+  <resultMap id="BaseResultMap" type="cn.edu.nwsuaf.lims.model.Comment">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="comment_id" jdbcType="VARCHAR" property="commentId" />
+    <result column="article_id" jdbcType="VARCHAR" property="articleId" />
+    <result column="create_at" jdbcType="TIMESTAMP" property="createAt" />
+    <result column="update_at" jdbcType="TIMESTAMP" property="updateAt" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+</mapper>

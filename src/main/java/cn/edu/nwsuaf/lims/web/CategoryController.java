@@ -2,8 +2,8 @@ package cn.edu.nwsuaf.lims.web;
 
 import cn.edu.nwsuaf.lims.core.Result;
 import cn.edu.nwsuaf.lims.core.ResultGenerator;
-import cn.edu.nwsuaf.lims.model.Model;
-import cn.edu.nwsuaf.lims.service.ModelService;
+import cn.edu.nwsuaf.lims.model.Category;
+import cn.edu.nwsuaf.lims.service.CategoryService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.web.bind.annotation.*;
@@ -12,42 +12,42 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
-* Created by liuchao Li on 2019/09/08.
+* Created by liuchao Li on 2020/06/28.
 */
 @RestController
-@RequestMapping("/categor")
-public class ModelController {
+@RequestMapping("/category")
+public class CategoryController {
     @Resource
-    private ModelService modelService;
+    private CategoryService categoryService;
 
     @PostMapping("/add")
-    public Result add(@RequestBody Model model) {
-        modelService.save(model);
+    public Result add(@RequestBody Category category) {
+        categoryService.save(category);
         return ResultGenerator.genSuccessResult();
     }
 
     @DeleteMapping("/delete")
-    public Result delete(@RequestBody Model model) {
-        modelService.deleteById(model.getId());
+    public Result delete(@RequestBody Category category) {
+        categoryService.deleteById(category.getId());
         return ResultGenerator.genSuccessResult();
     }
 
     @PutMapping("/update")
-    public Result update(@RequestBody Model model) {
-        modelService.update(model);
+    public Result update(@RequestBody Category category) {
+        categoryService.update(category);
         return ResultGenerator.genSuccessResult();
     }
 
     @GetMapping("/detail")
     public Result detail(@RequestParam(defaultValue = "0") Integer id) {
-        Model model = modelService.findById(id);
-        return ResultGenerator.genSuccessResult(model);
+        Category category = categoryService.findById(id);
+        return ResultGenerator.genSuccessResult(category);
     }
 
     @GetMapping("/list")
     public Result list(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size) {
         PageHelper.startPage(page, size);
-        List<Model> list = modelService.findAll();
+        List<Category> list = categoryService.findAll();
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }

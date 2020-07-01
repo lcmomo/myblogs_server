@@ -1,9 +1,8 @@
 package cn.edu.nwsuaf.lims.service.impl;
 
-import cn.edu.nwsuaf.lims.dao.TagMapper;
-import cn.edu.nwsuaf.lims.model.Reply;
-import cn.edu.nwsuaf.lims.model.Tag;
-import cn.edu.nwsuaf.lims.service.TagService;
+import cn.edu.nwsuaf.lims.dao.CategoryMapper;
+import cn.edu.nwsuaf.lims.model.Category;
+import cn.edu.nwsuaf.lims.service.CategoryService;
 import cn.edu.nwsuaf.lims.core.AbstractService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,20 +13,20 @@ import java.util.List;
 
 
 /**
- * Created by liuchao Li on 2020/03/21.
+ * Created by liuchao Li on 2020/06/28.
  */
 @Service
 @Transactional
-public class TagServiceImpl extends AbstractService<Tag> implements TagService {
+public class CategoryServiceImpl extends AbstractService<Category> implements CategoryService {
     @Resource
-    private TagMapper tagMapper;
+    private CategoryMapper categoryMapper;
 
     @Override
-    public List<Tag> findTagByArticleId(Integer articleId) {
-        Condition condition = new Condition(Tag.class);
+    public List<Category> findCategoryByArticleId(Integer articleId) {
+        Condition condition = new Condition(Category.class);
         System.out.println(articleId);
         condition.createCriteria().andEqualTo("articleId",articleId);
-        List<Tag> list = findByCondition(condition);
+        List<Category> list = findByCondition(condition);
         if(!list.isEmpty()) {
             return list;
         } else {

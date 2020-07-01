@@ -7,41 +7,29 @@ import java.util.List;
 import javax.persistence.*;
 
 @Data
-public class Article {
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "comment_id")
+    private String commentId;
+
     @Column(name = "article_id")
-    @Transient
     private String articleId;
 
-    private String title;
+    @Column(name = "create_at")
+    private Date createAt;
 
-    @Column(name = "create_time")
-    private Date createTime;
+    @Column(name = "update_at")
+    private Date updateAt;
 
-    @Column(name = "update_time")
-    private Date updateTime;
+    private String userid;
 
     private String content;
 
-    @Column(name = "viewCount")
-    private Integer viewCount;
-
     @Transient
-    private List<Comment> commentList;
-
-    @Transient
-    private List<Tag> tagList;
-
-    @Transient
-    private List <Category> categoryList;
-
-    @Transient
-    private List <Reply> replyList;
-
-
+    private List<Reply> replyList;
 
     /**
      * @return id
@@ -55,6 +43,20 @@ public class Article {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * @return comment_id
+     */
+    public String getCommentId() {
+        return commentId;
+    }
+
+    /**
+     * @param commentId
+     */
+    public void setCommentId(String commentId) {
+        this.commentId = commentId;
     }
 
     /**
@@ -72,45 +74,45 @@ public class Article {
     }
 
     /**
-     * @return title
+     * @return create_at
      */
-    public String getTitle() {
-        return title;
+    public Date getCreateAt() {
+        return createAt;
     }
 
     /**
-     * @param title
+     * @param createAt
      */
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
 
     /**
-     * @return create_time
+     * @return update_at
      */
-    public Date getCreateTime() {
-        return createTime;
+    public Date getUpdateAt() {
+        return updateAt;
     }
 
     /**
-     * @param createTime
+     * @param updateAt
      */
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setUpdateAt(Date updateAt) {
+        this.updateAt = updateAt;
     }
 
     /**
-     * @return update_time
+     * @return userid
      */
-    public Date getUpdateTime() {
-        return updateTime;
+    public String getUserid() {
+        return userid;
     }
 
     /**
-     * @param updateTime
+     * @param userid
      */
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     /**
