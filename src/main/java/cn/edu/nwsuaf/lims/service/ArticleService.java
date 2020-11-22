@@ -11,4 +11,5 @@ import java.util.List;
 public interface ArticleService extends Service<Article> {
  public List<Article> findByKeywords(Integer page, String keywords);
  public List<Article> findAllArticle();
+ public Article findAritcleById(Integer id);
 }

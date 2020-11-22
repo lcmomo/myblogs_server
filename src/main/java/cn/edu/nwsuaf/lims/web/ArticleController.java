@@ -40,7 +40,7 @@ public class ArticleController {
 
     @GetMapping("/detail")
     public Result detail(@RequestParam(defaultValue = "0") Integer id) {
-        Article article = articleService.findById(id);
+        Article article = articleService.findAritcleById(id);
         return ResultGenerator.genSuccessResult(article);
     }
 
@@ -61,4 +61,12 @@ public class ArticleController {
         PageInfo pageInfo = new PageInfo(list);
         return ResultGenerator.genSuccessResult(pageInfo);
     }
+//    @GetMapping("/findbykeywords")
+//    public Result findByKeywords(@RequestParam(defaultValue = "0") Integer page, @RequestParam(defaultValue = "0") Integer size,@RequestParam(defaultValue = "") String keywords) {
+//        PageHelper.startPage(page, size);
+//
+//        List<Article> list = articleService.findByKeywords(page,keywords);
+//        PageInfo pageInfo = new PageInfo(list);
+//        return ResultGenerator.genSuccessResult(pageInfo);
+//    }
 }

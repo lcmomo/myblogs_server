@@ -63,4 +63,17 @@ public class ArticleServiceImpl extends AbstractService<Article> implements Arti
         return  list;
     }
 
+    @Override
+    public Article findAritcleById(Integer id) {
+        Article article = findById(id);
+        List <Comment> commitList = commentService.findByArticleId(id);
+        List <Tag> tagList = tagService.findTagByArticleId(id);
+        List <Category> categoryList = categoryService.findCategoryByArticleId(id);
+        article.setCommentList(commitList);
+        article.setCategoryList(categoryList);
+        article.setTagList(tagList);
+        return article;
+
+    }
+
 }
